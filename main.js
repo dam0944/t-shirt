@@ -167,7 +167,7 @@ function render(direction) {
     x: direction > 0 ? 260 : -260,
     y: direction > 0 ? 160 : -160,
     scale: 0.55,
-    rotation: direction > 0 ? 12 : -12,
+    rotation: direction > 0 ? 12 : -12, // Ternary operator = condition  ?  true : false
     duration: reduced ? 0.01 : 0.45,
     ease: 'power2.in'
   });
@@ -185,11 +185,11 @@ function render(direction) {
     ease: 'power3.inOut',
     scale: true,
     onComplete: function () {
-      // Old main becomes the new thumb
+     
       mainEl.classList.remove('slot-main');
       mainEl.classList.add('slot-thumb');
     
-      paint(mainEl, data[previewIndex]);
+      paint(mainEl, data[previewIndex]);  
 
       gsap.set(mainEl, { 
         x: 0,
@@ -203,7 +203,7 @@ function render(direction) {
       mainIsA = !mainIsA;
       animating = false;
 
-      startIdle(thumbEl, thumbEl === stageA ? 2.3 : -2.3);
+      startIdle(thumbEl, thumbEl === stageA ? 2.3 : -2.3);  
       startIdle(mainEl, mainEl === stageA ? 2.3 : -2.3);
     }
   });
